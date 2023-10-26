@@ -18,14 +18,20 @@
 
 /* 웹 브라우저의 기본 스타일 시트 초기화 => 이유? : 웹브라우저의 기본 값 대신에 사용자 정의 값으로 css 적용 위해  */
 /*-- 헤더 영역 -- */
- *{
+*{
+/* 바깥 여백 */
 margin:0;
+/* 내부 여백 */
 padding:0;
+/* 박스 크기를 테두리 기준(border-box)으로 크기를 정함 */
 box-sizing: border-box;
 }
 
+/* a:link = 방문 전 링크 상태, :visited = 방문 후 링크 상태 */
 a, a:link, a:visited {
+/* inherit = 부모 요소로부터 색상 계산값 받아 사용 */
 color:inherit;
+/* text-decoration(텍스트를 선으로 꾸밀수 있음) : none(선 만들지않음) */
 text-decoration: none;
 }
 
@@ -49,6 +55,7 @@ header{
     /* position 지정 시 html 모든 요소의 속성값은 기본 0 이므로 header에 1을 준다=> 밑에 안가리게 함 */
     z-index: 1;
     width: 100%;
+    /* html 요소의 크기의 n 배(크기 정함(기본은 16px)) */
     padding: 1rem;
 }
 
@@ -99,6 +106,7 @@ main{
     color:white;
     /* 배경이미지 경로 지정, linear-gradient() 함수 사용 시 배경색이 이미지를 덮음*/
     background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url('/main.jpg') center center;
+    /* 배경을 사용하는 요소 다 채우기 */
     background-size: cover;
     /* 수직방향에서 요소들이 중앙에 위치하도록 flex 지정 */
     display: flex;
@@ -107,6 +115,7 @@ main{
     /* 텍스트 중앙 정렬 */
     text-align:center;
 }
+
 /* 텍스트별로 크기와 margin 속성 지정 */
 main h4{
     font-family: 'Kanit', sans-serif;
@@ -116,6 +125,7 @@ main h2{
     font-family: 'Kanit', sans-serif;
     font-size:3.5rem;
     margin:2rem 0;
+    /* 글자 사이의 간격 */
     letter-spacing:3px;
 }
 main p{
@@ -129,7 +139,9 @@ main p{
 main button.download{
     /* 배경색 투명(transparent)지정 */
     background-color: transparent;
+    /* 테두리 */
     border:3px solid white;
+    /* 테두리를 둥글게 */
     border-radius:20px;
     /* 요소 내부와 외부에 간격주기 : padding, margin 속성 지정 */
     padding:1rem 2rem;
@@ -147,10 +159,18 @@ main button.mouse{
     position:absolute;
     bottom:1rem;
     left:50%;
+    /* 요소 형태 변형 
+    translateX = 오른쪽으로 -> 음수 => 왼쪽
+    translateX(-50) => 왼쪽으로
+    translateY=아래쪽 <-> 음수 => 위쪽*/
     transform: translateX(-50%);
+    /* 동적 효과 */
     animation: upDown 1s ease-in-out infinite;
     cursor: pointer;
 }
+/* @keyframes = 어떤 모양에서 어떤 모양으로 바꿀지 
+upDown = 애니메이션 이름 지정
+0% = 시작할 때 모양~ 100%= 끝날 때 모양*/
 @keyframes upDown{
     0%{
         bottom: 1rem;
@@ -177,17 +197,17 @@ main h2 span::after{
 }
 @keyframes blink{
     0%{
+        /* 요소 투명도 설정 (작을수록 투명해짐) */
         opacity: 1;
     }
     100%{
         opacity: 0;
     }
 }
-
 /* 메인 영역 끝 */
 
 
-/* About me  */
+/*  About me  */
 section{
     font-family: 'Kanit', sans-serif;
     /* 위 아래 여백 5rem 동일하게 지정 */
@@ -218,6 +238,7 @@ section .title p{
 section .about-self::after{
     content: "";
     /* float 속성 해제 */
+    /* float 속성이 적용된 이후 요소 동작 조절 */
     clear:both;
     display: block;
 }
@@ -235,6 +256,7 @@ section .about-self .left img{
 /* 본문 너비 절반 지정+ 오른쪽배치 */
 section .about-self .right{
     width:50%;
+    /* 왼쪽(left)에 부유하는 블록박스 생성 */
     float:left;
     padding:0 2rem;
 }
@@ -267,6 +289,7 @@ section .about-self .right .social a {
 /* float 속성 해제 */
 section .do-me::after{
     content: "";
+    /* block(혼자 한 줄 차지) */
     display: block;
     clear:both;
 }
@@ -316,9 +339,12 @@ section .do-me .do-inner:hover i {
 /* 배경에 이미지 고정 */
 .bg{
     background: url('/back.jpg') center center;
+    /* 배경 이미지의 가로, 세로 (cover=배경을 사용하는 요소를 다 채우기 위해
+    이미지 확대&축소, 가로 세로 비율 유지) */
     background-size: cover;
+    /* 배경 이미지의 스크롤 여부 (fixed=고정) */
     background-attachment: fixed;
-    height:650px
+    height:650px;
 }
 
 </style>
@@ -381,7 +407,7 @@ section .do-me .do-inner:hover i {
             <div class="right">
                 <h3>Hello, <strong>I'm JiHye</strong></h3>
                 <p>I'm Web Publisher And Web Front-End Developer.</p>
-            
+            <!-- facebook, instagram, twitch, youtube 아이콘 -->
             <div class="social">
                 <a href="#">
                     <i class="fa-brands fa-facebook"></i>
@@ -420,10 +446,8 @@ section .do-me .do-inner:hover i {
                 <p>HTML5</p>
             </div>
         </div>
-    </div>
 
     <!-- CSS3 -->
-    <div class="do-me">
         <div class="do-inner">
             <div class="icon">
                 <i class="fa-brands fa-css3-alt"></i>
@@ -433,10 +457,9 @@ section .do-me .do-inner:hover i {
                 <p>CSS3</p>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 
     <!-- Java -->
-    <div class="do-me">
         <div class="do-inner">
             <div class="icon">
                 <i class="fa-brands fa-java"></i>
@@ -446,13 +469,17 @@ section .do-me .do-inner:hover i {
                 <p>Java</p>
             </div>
         </div>
+
+        <!-- do-me 클래스로 묶기 -->
     </div>
 </div>
 </section>
 <!-- What I DO 끝 -->
 
-<!-- 고정 이미지 -->
+<!-- 고정 배경 이미지 -->
 <div class="bg"></div>
+
+
 
 </body>
 </html>
