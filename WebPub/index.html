@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project</title>
+    <title>Web Project</title>
     <!-- 폰트 적용하기 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
@@ -14,6 +14,144 @@
     <link rel="stylesheet" href="style.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:wght@400;600&display=swap');
+
+/* 반응형 - 기준이 되는 html(font-size) 속성값을 작게 하면 화면너비가 줄어 들수록
+    전체 텍스트 크기와 내외부 여백이 일정 비율로 줄어들음 */
+@media screen and (max-width:992px){
+    html{
+        font-size: 14px;
+    }
+
+/* 메인 영역 container 기준 너비 변경 */
+main .container{
+    width: 768px;
+}
+/* PortFolio 영역 본문 사각형 너비 변경 */
+section .portfolio-me .portfolio-inner{
+    width: 100%;
+}
+
+}
+
+@media screen and (max-width:768px){
+    html{
+        font-size: 13px;
+    }
+
+    /* 기준 너비 변경 */
+    main .container{
+        width:576px;
+    }
+
+    section .container{
+        width: 400px;
+    }
+    section .do-me .do-inner{
+        /* 48% -> 100% */
+        width:100%;
+        /* 외부 여백 초기화 */
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width:576px){
+    html{
+        font-size: 12px;
+    }
+
+    /* container클래스의 기준 너비 변경 */   
+    main .container{
+        width:400px;
+    }
+    section .container{
+        width:360px;
+    }
+}
+
+@media screen and (max-width:400px){
+    html{
+        font-size: 11px;
+    }
+
+    main .container{
+        width:320px;
+    }
+    section .container{
+        width: 320px;
+    }
+
+ /* font-size 작게 재설정 */
+    main h4{
+        font-size:1.5rem;
+    }
+    section .title h2{
+        /* 3.5 -> 3 */
+        font-size:3rem;
+    }
+}
+
+@media screen and (max-width:1140px){
+    /* 메인 영역 container 기준 너비 변경 */
+    main .container{
+        width:992px;
+    }
+    /* section - container 기준 너비 변경  */
+    section .container {
+        width:600px;
+    }
+
+    /* About Me 영역 왼쪽 너비 50% -> 100% 변경 */
+    section .about-self .left{
+        width:100%;
+        margin-bottom: 1.5rem;
+    }
+    /* About Me 영역 오른쪽 너비 50%-> 100% 변경 */
+    section .about-self .right{
+        width: 100%;
+        padding :0;
+    }
+
+    section .do-me .do-inner{
+        /* 본문 사각형 너비 -> 48%로 변경 */
+        width:48%; 
+        /* 본문 사각형 사이 간격 지정 */
+        margin-bottom: 1.5rem;
+        /* 외부 여백 초기화 */
+        margin-right:0;
+    }
+
+    section .do-me .do-inner:nth-child(2n+1){
+        /* 1,3,5..번째 본문 사각형에 margin-right:4% 적용 */
+        margin-right: 4%; 
+    }
+
+    section .portfolio-me .portfolio-inner{
+        /* 본문 사각형 너비 -> 48%로 변경 */
+        width:48%; 
+        /* 외부 여백 초기화 */
+        margin-right:0;
+    }
+
+    section .portfolio-me .portfolio-inner:nth-child(2n+1){
+        /* 1,3,5..번째 본문 사각형에 margin-right:4% 적용 */
+        margin-right: 4%; 
+    }
+
+    section.contact .contact-me .left{
+        /* 너비 변경 35 -> 100%  */
+        width: 100%;
+    }
+
+    section.contact .contact-me .right{
+        /* 너비 변경 65 -> 100% */
+        width:100%;
+        /* 외부 여백 초기화 */
+        margin-left:0;
+    }
+
+}
+
+
 
 
 /* 웹 브라우저의 기본 스타일 시트 초기화 => 이유? : 웹브라우저의 기본 값 대신에 사용자 정의 값으로 css 적용 위해  */
@@ -59,6 +197,21 @@ header{
     padding: 1rem;
 }
 
+/* 헤더 영역 메뉴 */
+header.active{
+    background-color: rgba(0,0,0);
+    animation:fadeIn 0.5s ease-in-out;
+}
+/* fadeIn : 투명도가 0에서 1로 1초간 변함 */
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 /* 헤더 영역의 메뉴 배치 관련 */
 header .container{
     /* 레이아웃 형태 유지 쉽게 
@@ -87,11 +240,14 @@ header button {
 }
 
 header h1 button {
+    font-family: 'Kanit', sans-serif;
     font-size:2rem;
+    color:white;
     font-weight:bold;
 }
 
 header nav ul li button {
+    font-family: 'Kanit', sans-serif;
     font-size : 1.2rem;
     color : white;
 }
@@ -105,7 +261,7 @@ main{
     height:100vh;
     color:white;
     /* 배경이미지 경로 지정, linear-gradient() 함수 사용 시 배경색이 이미지를 덮음*/
-    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url('/main.jpg') center center;
+    background: linear-gradient(rgba(29, 29, 29, 0.8),rgba(29, 29, 29, 0.8)),url('/image/main.jpg') center center;
     /* 배경을 사용하는 요소 다 채우기 */
     background-size: cover;
     /* 수직방향에서 요소들이 중앙에 위치하도록 flex 지정 */
@@ -137,6 +293,7 @@ main p{
 
 /* 버튼 꾸미기 */
 main button.download{
+    font-family: 'Kanit', sans-serif;
     /* 배경색 투명(transparent)지정 */
     background-color: transparent;
     /* 테두리 */
@@ -150,8 +307,8 @@ main button.download{
     font-weight:bold;
     cursor:pointer;
 }
-/* 아이콘 폰트로 추가한 마우스 모양의 버튼에 스타일 속성 */
-main button.mouse{
+/* 아이콘 폰트로 추가한 컴퓨터 모양의 버튼에 스타일 속성 */
+main button.computer{
     background-color: transparent;
     border:none;
     color:white;
@@ -205,6 +362,7 @@ main h2 span::after{
     }
 }
 /* 메인 영역 끝 */
+
 
 
 /*  About me  */
@@ -347,31 +505,173 @@ section .do-me .do-inner:hover i {
     height:650px;
 }
 
+/* 포트폴리오 영역 */
+
+/* clear 속성으로 float 속성값 해제 */
+section.portfolio::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+/* portfolio-inner 사각형 꾸미기 */
+ section.portfolio .portfolio-inner{
+    width:30%;
+    margin-right: 5%;
+    padding:1rem 1rem 1.5rem 1rem;
+    float:left;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    margin-bottom:3rem;
+ }
+
+ /* 3번째마다 margin-right 0 적용 */
+ section.portfolio .portfolio-inner:nth-child(3n){
+    margin-right:0;
+ }
+
+ /* 사각형에 넣을 이미지와 텍스트 크기, 여백 지정 */
+
+ /* 이미지 크기가 부모 요소를 넘지 않도록 100%로 설정 */
+ section.portfolio .portfolio-inner img{
+    width:100%;
+    display: block;
+ }
+
+ /* strong 태그 색상과 간격 */
+ section.portfolio .portfolio-inner strong{
+    color:#ff6a6a;
+    margin:0.5rem 0;
+    display: block;
+ }
+ /* h3 태그 색상과 간격 */
+ section.portfolio .portfolio-inner h3{
+    font-size:1.5rem;
+ }
+
+
+
+/* Contact With me */
+/* 왼쪽 너비 30%, 오른쪽 너비 65%, 나머지는 margin-left 속성값으로 */
+
+section.contact .contact-me::after{
+    content:"";
+    display: block;
+    clear:both;
+}
+section.contact .contact-me .left{
+    width:30%;
+    float:left;
+}
+section.contact .contact-me .right{
+    float:left;
+    width: 65%;
+    margin-left:5%;
+}
+
+/* 왼쪽 스타일  */
+
+section.contact .contact-me .left .card{
+    border:1px solid #ccc;
+    padding:1rem;
+    /* 가로 한 줄 배치 */
+    display: flex;
+    /* 수직방향으로 중앙에 위치하기 */
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+/* 왼쪽에 있는 아이콘 폰트 적정 너비 지정 */
+section.contact .contact-me .left .card .icon i{
+    font-size:2rem;
+    margin-right: 15px;
+}
+
+/* 오른쪽 스타일 */
+section.contact .contact-me .right{
+    float:left;
+    width:65%;
+    margin-left: 5%;
+    margin-bottom: 2rem;
+    border:1px solid #ccc;
+    padding:1rem;
+}
+
+/* 폼 요소 */
+/* form-group 사이 간격 지정 */
+section.contact .contact-me .right .form-group{
+    margin-bottom: 1.25rem;
+}
+/* 외부 여백 적용 위해 block */
+section.contact .contact-me .right .form-group label{
+    display: block;
+    margin-bottom: 0.85rem;
+}
+
+/* input 꾸미기 */
+section.contact .contact-me .right .form-group input{
+    padding:0.625rem;
+    width:100%;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+/* :focus 가상 클래스 선택자로 입력 요소에 커서가 활성화 되면
+    파란테두리+그림자 효과 추가 */
+section.contact .contact-me .right .form-group input:focus{
+    border:1px solid #719ECE;
+    box-shadow: 0 0 10px #719ECE;
+}
+/* textarea 꾸미기 */
+section.contact .contact-me .right .form-group textarea{
+    height:300px;
+    width: 100%;
+    resize:none;
+    border:1px solid #ccc;
+    border-radius: 10px;
+}
+/* textarea 커서 활성화 되면 파란색 테두리+그림자 효과 추가 */
+section.contact .contact-me .right .form-group textarea:focus{
+    outline: none;
+    border:1px solid #719ECE;
+    box-shadow: 0 0 10px #719ECE;
+}
+/* 버튼 요소 꾸미기 */
+section.contact .contact-me .right button{
+    width: 100%;
+    padding:1rem;
+    background-color:#e06a80;
+    border:none;
+    color:white;
+    font-size: 15px;
+}
+
+
 </style>
 </head>
 <body>
-<!-- /*-- 헤더 영역 -- */ -->
-    <header>  
+<!-- < /*-- 헤더 영역 -- */ --> 
+    <header class="active">  
         <div class="container">
             <!-- HTML구조의 핵심인 container 클래스가 포함된 div 태그 
                  div태그는 전체 프로젝트의 기준 너비를 유지하기 위한 래퍼 역할-->
             <h1>
-                <button>PJ</button>
+                <!-- animation-scroll, target 속성 지정 -->
+                <button data-animation-scroll="true" data-target="#main">PJ</button>
             </h1>
         <nav>
             <ul>
                 <!-- button 태그의 텍스트(About,Features,Portfolio,Contact) -->
                 <li>
-                    <button>About</button>
+                    <button data-animation-scroll="true" data-target="#about">About</button>
                 </li>
                 <li>
-                    <button>Features</button>
+                    <button data-animation-scroll="true" data-target="#features">Features</button>
                 </li>
                 <li>
-                    <button>Portfolio</button>
+                    <button data-animation-scroll="true" data-target="#portfolio">Like</button>
                 </li>
                 <li>
-                    <button>Contact</button>
+                    <button data-animation-scroll="true" data-target="#contact">Contact</button>
                 </li>
             </ul>
         </nav>
@@ -385,10 +685,10 @@ section .do-me .do-inner:hover i {
 <main id="main">
     <div class="container">
         <h4>Welcome</h4>
-        <h2>I'M A <span>Front-End Developer</span></h2>
-        <p>Lorem ipsum dolor sit amet</p>
-        <button class="download">DOWNLOAD CV</button>
-        <button class="mouse"><i class="fa-solid fa-computer-mouse"></i></button>
+        <h2>I'M A <span></span></h2>
+        <p>Introduction</p>
+        <button class="download">DOWNLOAD</button>
+        <button class="computer"><i class="fa-solid fa-computer"></i></button>
     </div>
 </main>
 <!-- 메인 영역 끝 -->
@@ -402,24 +702,18 @@ section .do-me .do-inner:hover i {
         </div>
         <div class="about-self">
             <div class="left">
-                <img src="/aboutme.jpg" alt="">
+                <img src="/image/aboutme.jpg" alt="">
             </div>
             <div class="right">
                 <h3>Hello, <strong>I'm JiHye</strong></h3>
                 <p>I'm Web Publisher And Web Front-End Developer.</p>
             <!-- facebook, instagram, twitch, youtube 아이콘 -->
             <div class="social">
-                <a href="#">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
-                <a href="#">
+                <a href="https://www.instagram.com/jyeee.h/">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
-                <a href="#">
-                    <i class="fa-brands fa-twitch"></i>
-                </a>
-                <a href="#">
-                    <i class="fa-brands fa-youtube"></i>
+                <a href="https://github.com/jyeeeh">
+                    <i class="fa-brands fa-github"></i>
                 </a>
             </div>
         </div>
@@ -443,7 +737,7 @@ section .do-me .do-inner:hover i {
             </div>
             <div class="content">
                 <h3>HTML5</h3>
-                <p>HTML5</p>
+                <p></p>
             </div>
         </div>
 
@@ -454,7 +748,7 @@ section .do-me .do-inner:hover i {
             </div>
             <div class="content">
                 <h3>CSS3</h3>
-                <p>CSS3</p>
+                <p></p>
             </div>
         </div>
     <!-- </div> -->
@@ -466,7 +760,7 @@ section .do-me .do-inner:hover i {
             </div>
             <div class="content">
                 <h3>Java</h3>
-                <p>Java</p>
+                <p></p>
             </div>
         </div>
 
@@ -481,5 +775,118 @@ section .do-me .do-inner:hover i {
 
 
 
+<!-- 포트폴리오 영역 -->
+<section id="portfolio" class="portfolio">
+    <div class="container">
+        <div class="title">
+            <h4>What I</h4>
+            <h2>Like</h2>
+        </div>
+
+        <div class="portfolio-me">
+            <div class="portfolio-inner">
+                <img src="/image/spring.jpg" alt="첫번째">
+                <strong>Season</strong>
+                <h3>Spring</h3>
+            </div>
+            <div class="portfolio-inner">
+                <img src="/image/park.jpg" alt="두번째">
+                <strong>Place</strong>
+                <h3>Amusement Park</h3>
+            </div>
+            <div class="portfolio-inner">  
+                <img src="/image/pic.jpg" alt="세번째">
+                <strong>Usual</strong>
+                <h3>Take a picture</h3>
+            </div>
+            <div class="portfolio-inner">
+                <img src="/image/exhibit.jpg" alt="네번째">
+                <strong>Hobby</strong>
+                <h3>Exhibition visit</h3>
+            </div>
+            <div class="portfolio-inner">  
+                <img src="/image/1.jpeg" alt="다섯번째">
+                <strong>Drink</strong>
+                <h3>Coffee</h3>
+            </div>
+            <div class="portfolio-inner">
+                <img src="/image/christ.jpg" alt="여섯번째">
+                <strong>Anniversary</strong>
+                <h3>Christmas</h3>
+            </div>                                
+         </div>
+      </div>
+    </div>
+</section>
+<!-- 포트폴리오 영역 끝 -->
+
+<!-- Contact With me -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="title">
+            <h4>CONTACT</h4>
+            <h2>Contact With Me</h2>
+        </div>
+
+        <div class="contact-me">
+            <div class="left">
+                <div class="card">
+                    <div class="icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>Phone</h3>
+                        <p>010-0000-0000</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>Email</h3>
+                        <p>jnelnl@naver.com</p>
+                        <p>universe78a@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>Address</h3>
+                        <p>Dobong-gu,<br> Seoul, Republic of Korea</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <form action="#">
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="msg">Message</label>
+                        <!-- 여러줄 입력 요소 : textarea -->
+                        <textarea id="msg"></textarea>
+                    </div>
+                    <button type="submit">Send</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact 끝 -->
+
+<script src="script.js"></script>
 </body>
 </html>
