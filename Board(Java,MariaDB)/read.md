@@ -25,7 +25,7 @@ CRUD 기능이 포함되어있는 게시판입니다.
  
 ![1](https://github.com/jyeeeh/Project/assets/145963612/39e9a043-db1a-4dbd-bc87-fdc75888078b)
 
-[1. Create]
+**[1. Create]**
 
 - 새 게시물 입력 - 제목, 내용, 작성자 순으로 입력
 
@@ -35,7 +35,7 @@ CRUD 기능이 포함되어있는 게시판입니다.
 
 ![3](https://github.com/jyeeeh/Project/assets/145963612/f30bf309-255b-486a-9a74-e14fa47ca061)
 
-[2. Read]
+**[2. Read]**
 
 - 게시물 읽기 - 게시물 목록에 no(게시물 리스트 번호)를 선택하면 해당 게시물의 제목, 내용, 작성자, 작성일자가 출력
 - 보조메뉴로 1. Update | 2. Delete | 3. List 출력
@@ -58,13 +58,13 @@ CRUD 기능이 포함되어있는 게시판입니다.
 
 현재 게시물 목록 리스트 출력
 
-[3. Clear]
+**[3. Clear]**
 
 - 게시물 전체 삭제 - 보조메뉴로 삭제할건지 한번 더 물어보고 전체삭제 진행
 
 ![7](https://github.com/jyeeeh/Project/assets/145963612/72a022fb-ef92-45a1-89d4-57b7ea9ba7fb)
 
-[4. Exit]
+**[4. Exit]**
 
 - 게시판 실행 종료
 
