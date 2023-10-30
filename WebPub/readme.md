@@ -31,9 +31,7 @@
 - PJ 클릭 → 메인 페이지로 이동
 - About, Featrues, Like, Contact 클릭 → 각각 해당 화면으로 이동
 
-<p align="center">
-  <img src="![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/13e796d8-d656-46ea-ba26-4c57f70dd942/42db89d2-83e3-49c3-af00-f1258a7e3d49/Untitled.png)">
-</p>
+![1](https://github.com/jyeeeh/Project/assets/145963612/ffd3fed0-4983-481c-acb7-160fff5486d8)
 
 **[About]**
 
