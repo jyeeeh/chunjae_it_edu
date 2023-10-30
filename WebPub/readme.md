@@ -37,25 +37,25 @@
 
 - instagram, github 클릭 시 해당 사용자 링크로 이동
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/13e796d8-d656-46ea-ba26-4c57f70dd942/052cdd01-42b8-4498-b939-d922cd6b8700/Untitled.png)
+![2](https://github.com/jyeeeh/Project/assets/145963612/95ce9492-e140-45ca-bee6-0c527db5eed4)
 
 **[Features]**
 
 - 본인이 할 수 있는 기술스택 나열 (마우스 올려놓으면 색상 변경)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/13e796d8-d656-46ea-ba26-4c57f70dd942/670071aa-b955-471d-8e0e-2c6f9975ea42/Untitled.png)
+![3](https://github.com/jyeeeh/Project/assets/145963612/b03f1791-7cc4-42aa-9d56-7490dbfff327)
 
 **[Like]**
 
 - 사용자가 좋아하는 항목 나열
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/13e796d8-d656-46ea-ba26-4c57f70dd942/f4db69cb-1422-4467-b3e8-ddb58ba9b604/Untitled.png)
+  
+![4](https://github.com/jyeeeh/Project/assets/145963612/634096cf-fd07-47f0-8d2f-1e99dab3ed6f)
 
 **[Contact]**
 
 - 해당 사용자에게 보낼 수 있는 이름/이메일/메세지 화면 구현
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/13e796d8-d656-46ea-ba26-4c57f70dd942/7f501c21-6447-43ad-bbc6-2071fd526bff/Untitled.png)
+![5](https://github.com/jyeeeh/Project/assets/145963612/7353ebc9-d69d-4202-961c-c90638ce204c)
 
 # 외부 리소스 정보
 
