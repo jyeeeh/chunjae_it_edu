@@ -1,0 +1,262 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{                              /*전체 선택자*/
+	margin: 0 auto;             /*중앙정렬 속성*/
+	list-style: none;           /*목록 구분하는 점 제거(none)*/
+	font-family: "맑은 고딕";   /*글꼴 정하는 속성*/   
+	padding: 0;                 /*안쪽 여백 영역(padding) 0;*/
+}
+body,html{                      /*body,html 태그 적용*/
+	background-color: #FFFFFF;/*배경 색(border+padding)영역*/
+	min-width: 1000px;          /*최소 너비 지정(1000px)*/
+	color: #666666;           /*요소 글씨, 장식 부분 색*/
+}
+img{                            /*img 태그 적용 */
+	max-width: 100%;            /*최대 너비 지정*/
+}
+.all{                           /*all 클래스 적용*/
+	width: 100%;                /*너비*/
+	float: left;                /*요소를 왼쪽에 띄움*/
+}
+.wrap{                          /*wrap 클래스 적용*/
+	width: 1000px;
+}
+#contents{                      /*contents(id) 적용*/
+	height: 500px;              /* 높이 설정 */
+	padding: 20px;              /*padding=border,content 사이 여백*/
+}
+a{
+	color: inherit;             /*부모요소로부터 해당 속성 계산값 받아 사용*/
+	text-decoration: none;      /*텍스트 선을 만들지 않음*/
+}
+.clear{clear:both;position:inherit;}   
+/*왼쪽 오른쪽에 모두 붙는 float 정렬 취소
+position->태그를 어떻게 위치시킬지 정의(inherit=부모 태그의 속성값 상속받음)*/
+header{
+	height: 150px;
+}
+#header_logo{               
+	padding: 20px;
+}
+.logo{
+	height: 110px;
+	overflow: hidden;           /*넘치는 부분은 안보여줌(hidden)*/
+	float: left             
+}
+.logo>a>img{
+	width: 300px;
+}
+nav{
+	float: left;
+	padding-left: 50px;
+}
+.nav{
+	width: 600px;
+	height: 20px;
+	margin-top:10px;
+}
+.nav>li{                        /*nav클래스 li(자식선택자)*/
+	width: 150px;
+	float: left;
+	text-align: center;         /*텍스트정렬 방향(center=중앙 정렬)*/
+	position: relative;         /*relative=원래 있던 위치를 기준으로 좌표 지정*/
+	transition: all 0.4s;       
+    /*transition(변화의 전 후 사이에 애니메이션 추가해서 움직임을 부드럽게 만들어줌
+    all(모든속성) 0.4s(0.4초 지연 후)*/
+	padding: 5px 0
+}
+.nav>li:after{                  
+	clear: both;                /*both=양쪽 모두 제거*/
+}
+.nav>li:hover{
+	background-color: #3366FF;
+	color: #FFFFFF
+}
+.submenu{
+	display: none;          /*요소를 어떻게 보여줄지(none=보이지 않음)*/
+	background-color: rgba(255,255,255,0.8);
+	position: absolute;     /*절대 좌표와 함께 위치 지정*/ 
+	z-index: 1;             /*요소의 수직 위치 정하는 속성*/
+	width: 100%;
+	margin-top: 5px
+}
+.submenu>li{
+	padding: 5px 0 5px 0;
+	transition: all 0.4s;
+	color: #000000;
+}
+.submenu>li:hover{
+	background-color: #999999;
+	color: inherit
+}
+#imageslide {
+	margin: 0 auto;
+	width: 1000px;
+	height: 400px;
+	overflow: hidden;
+	position: relative;
+}
+#imgs {
+	width: 5000px;
+	position: absolute;
+}
+#imgs img {
+	float: left;
+}
+#imgsbar {
+   position: relative;
+   margin: 20px auto;
+   width: 80px;
+}
+#imgsbar a {        /*imgsbar(id) a 하위선택자(해당하는 모든 하위요소)*/
+   float: left;
+   width: 15px;
+   height: 15px;
+   background: url(images/slide/dot.png) no-repeat; 
+   /*배경이미지 반복X*/
+}
+#imgsbar a.active {
+   background-position:0 -30px;
+}
+.welcome{
+   height: 100px;
+   width: 300px;
+   position: absolute;
+   margin: -50px 0 0 -150px !important; /*important=초기값만 적용*/
+   text-align: center;
+   line-height: 100px;
+   background-color: rgba(255,255,255,0.2);
+   border-radius: 20px;
+   left: 50%;
+   top: 50%;
+}
+.welcome h2{
+   color: #FFFFFF;
+}
+
+#contents{
+	height: 500px;
+}
+.notice{
+	width: 480px;
+	margin-top: 20px;
+	float: left
+}
+.notice h2{
+	color: #666666;
+	text-align: center;
+	padding-bottom: 10px;
+}
+.table{
+	border-collapse: collapse;
+	font-size: 0.9em;
+	color: #666666;
+	width: 480px;
+}
+.table tr>td{
+	padding-top: 10px;
+	padding: 5px;
+}
+.table tr:nth-child(2n){
+	background-color: #CCCCCC
+}
+
+.partner{
+ 	width: 480px;
+	margin-top: 20px;
+	float: right;
+}
+.partner h2{
+	color: #666666;
+	text-align: center;
+	padding-bottom: 10px;
+}
+.partner_info{
+	margin-top: 10px;
+	text-align: center;
+}
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+	background-color: rgba(0, 0, 0, 0.5);
+	text-align: center;
+	display: none;
+}
+.modal .content {
+	margin: 20px auto;
+	padding: 20px;
+	width: 600px;
+	background-color: #FFFFFF;
+}
+.modal .content img {
+	display: block;
+	margin: 0 auto;
+	padding: 20px 30px;
+}
+.modal .content button {
+	color: #FFF;
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: none;
+	background-color: #999999;
+	cursor: pointer;
+}
+
+.icon{
+	margin-top: 10px;
+	position: relative;
+	left: 10%;
+}
+.icons{
+	text-align: center
+}
+.btn{
+	width: 180px;
+	margin: 30px;
+	float: left;
+	display: inline-block;
+}
+.btn>button:hover{
+	background-color: #3366FF
+}
+.btn button{
+	padding: 10px;
+	background-color: #999999;
+	color: #FFFFFF;
+	border: none;
+	border-radius: 10px;
+	font-size: 20px
+}
+
+
+footer{
+	height: 100px;
+	width: 1000px;
+	background-color: #3366ff;
+	color: #FFFFFF;
+	overflow: hidden;
+	margin-top: 10px;		
+}
+footer .wrap{
+	padding: 10px 20px;
+}
+footer ul{
+	width: 50%;
+	float: left
+}
+footer ul>li{
+	float: left;
+	margin-left: 20px;
+	margin-top: 10px
+}
+footer p{
+	width: 50%;
+	font-size: 12px;
+	float: right;
+	color: #FFFFFF;
+}

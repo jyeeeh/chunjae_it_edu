@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form action="join.do" method="post" name="frm">
+	<label>아이디&nbsp&nbsp&nbsp</label> <!--아이디랑 비밀번호 모양(?) 맞추고싶으면 table 써야함-->
+	 <input type="text" name="userid" size="20" id="userid" autofocus><br>
+	<label>비밀번호</label>
+<input type="password" name="userpw" size="20" id="userpw" ><br>
+<label>본문내용</label><br>
+<textarea name="opinion" cols="20" rows="5"></textarea><br>
+<select name="city" id="city">
+    <option value="강북구">강북구</option>
+    <option value="강남구">강남구</option> <!--alt+shift+아래키 : 한줄 복사-->
+    <option value="서초구">서초구</option>
+    <option value="중원구">중원구</option>
+    <option value="분당구">분당구</option>
+</select>
+
+<select name="city" id="city" multiple>
+    <option value="강북구">강북구</option>
+    <option value="강남구">강남구</option> <!--alt+shift+아래키 : 한줄 복사-->
+    <option value="서초구">서초구</option>
+    <option value="중원구">중원구</option>
+    <option value="분당구">분당구</option>
+</select>
+<fieldset>
+    <legend>좋아하는 과일</legend>
+    <input type="checkbox" id="banana" name="banana" value="banana">
+    <label for="banana">바나나</label>
+    <input type="checkbox" id="apple" name="apple" value="apple">
+    <label for="apple">사과</label>
+    <input type="checkbox" id="orange" name="orange" value="orange">
+    <label for="orange">오렌지</label>
+</fieldset>
+<fieldset>
+    <legend>개인성격</legend>
+    <input type="radio" id="fast" name="fast" value="fast">
+    <label for="fast">fast</label>
+    <input type="radio" id="normal" name="normal" value="normal">
+    <label for="normal">normal</label>
+    <input type="radio" id="slow" name="slow" value="slow">
+    <label for="slow">오렌지</label>
+</fieldset>
+
+
+        <input type="submit" value="확인">
+		<input type="reset" value="취소">
+</body>
+</html>

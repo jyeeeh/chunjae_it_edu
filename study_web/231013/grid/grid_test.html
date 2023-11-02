@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container{
+            display:grid;
+            grid-template-columns : repeat(3,100px);
+            grid-template-rows: repeat(3, 100px);    
+            
+        }
+
+        .grid-item:nth-(1){
+            grid-column-start:1;
+            grid-column-end: 3;
+        }
+
+        #header {    /*# = 한번만(id)*/
+            grid-area: header;
+            background-color:blueviolet;
+        }
+        #sidebar{
+            grid-area: sidebar;
+            background-color:darkkhaki;
+        }
+        #content{
+            grid-area: content;
+            background-color:brown;
+        }
+        #footer{
+            grid-area: footer;
+            background-color: aqua;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <p id ="header">header</p> 
+        <p id ="sidebar">sidebar</p> 
+        <p id ="content">content</p> 
+        <p id ="footer">footer</p> 
+    </div>
+</body>
+</html>
