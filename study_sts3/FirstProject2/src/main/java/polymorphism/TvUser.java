@@ -13,7 +13,9 @@ public class TvUser {
 		
 		// 2. Spring 컨테이너로 부터 필요한 요청(Lookup)
 		TV tv = (TV)factory.getBean("tv");
-/*		TV tv2 = (TV)factory.getBean("tv");
+		
+		/*
+  		TV tv2 = (TV)factory.getBean("tv");
 		TV tv3 = (TV)factory.getBean("tv");
 		*/
 	
@@ -25,7 +27,7 @@ public class TvUser {
 		
 		//3. Spring 컨테이너를 종료
 		factory.close();
-	
+
 				
 	}	
 }

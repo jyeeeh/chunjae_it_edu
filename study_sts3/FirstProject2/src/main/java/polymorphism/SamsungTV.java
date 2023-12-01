@@ -19,14 +19,14 @@ public class SamsungTV implements TV {
 		this.price = price;
 	}
 	
-	public void initMethod() {
-		System.out.println("객체 초기화 작업 처리");
-	}
-	
-	public void destroyMethod() {
-		System.out.println("객체 삭제 전 처리할 로직 처리");
-	}
-	
+//	public void initMethod() {
+//		System.out.println("객체 초기화 작업 처리");
+//	}
+//	
+//	public void destroyMethod() {
+//		System.out.println("객체 삭제 전 처리할 로직 처리");
+//	}
+//	
 	public void powerOn() {
 		System.out.println("samsung-전원키기 / (가격:"+ price + ")");
 	}
