@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script>
+      $(function () {
+        //기본선택자
+        $('.wrap_1').css('border', '1px solid orange');
+        //직접선택자
+        // $('.wrap_1 p').css('background-color', 'yellow');
+        //위치선택자
+        $('.wrap_1 p').eq(1).css('background-color', 'yellow');
+        //근접선택자
+        $('.active').next('p').css('background-color', 'aqua');
+        //속성선택자 - 객체
+        $('input[type=text]').css({'background-color':'orange'});
+        //선택한 요소 삭제
+        $('.wrap_1 p').eq(1).removeClass('active');
+        //내가 선택한 맨 마지막에 요소 추가
+        $('.wrap_1').append('<p>텍스트2</p>');
+      });
+    </script>
+    <title>JQ_Test1</title>
+  </head>
+  <body>
+    <div class="wrap_1">
+      <p>텍스트1</p>
+      <p class="active">내용2</p>
+      <p><a href="#"> 네이버 </a></p>
+      <p>
+        <input type="text" value="Hello" />
+      </p>
+    </div>
+  </body>
+</html>
