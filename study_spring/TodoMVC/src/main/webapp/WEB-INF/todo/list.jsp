@@ -6,7 +6,9 @@
 </head>
 <body>
     <h1>Todo List</h1>
-
+    <h2>${appName}</h2>
+    <h2>${loginInfo}</h2>
+    <h3>${loginInfo.mname}</h3>
     <ul>
         <c:forEach items="${dtoList}" var="dto">
             <li>
@@ -17,6 +19,10 @@
             </li>
         </c:forEach>
     </ul>
+
+    <form action="/logout" method="post">
+        <button>LOGOUT</button>
+    </form>
 
 </body>
 </html>
