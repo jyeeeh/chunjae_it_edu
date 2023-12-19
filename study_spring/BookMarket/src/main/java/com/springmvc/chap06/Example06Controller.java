@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
-@RequestMapping("/chap06")
+//@Controller
+//@RequestMapping("/chap06")
 public class Example06Controller {
 
     @GetMapping("/exam01/{bookId}")

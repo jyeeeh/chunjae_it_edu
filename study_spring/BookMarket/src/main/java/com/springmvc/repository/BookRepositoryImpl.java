@@ -21,7 +21,7 @@ public class BookRepositoryImpl implements BookRepository {
                         "개발할 때 필요한 C#  기초문법을 익히고 기본기를 탄탄하게 다지는 것이 목적이다.");
         book1.setPublisher("길벗");
         book1.setCategory("IT전문서");
-        book1.setUnitInStock(1000);
+        book1.setUnitsInStock(1000);
         book1.setReleaseDate("2020/05/29");
 
         Book book2 = new Book("ISBN1235", "Node.js 교과서", 36000);
@@ -32,7 +32,7 @@ public class BookRepositoryImpl implements BookRepository {
         );
         book2.setPublisher("길벗");
         book2.setCategory("IT전문서");
-        book2.setUnitInStock(1000);
+        book2.setUnitsInStock(1000);
         book2.setReleaseDate("2020/07/25");
 
         Book book3 = new Book("ISBN1236", "어도비 XD CC 2020", 25000);
@@ -43,7 +43,7 @@ public class BookRepositoryImpl implements BookRepository {
                         "앱 디자인에 에니메애션과 인터랙션을 적용한 프로토타이핑을 학습합니다.");
         book3.setPublisher("길벗");
         book3.setCategory("IT활용서");
-        book3.setUnitInStock(1000);
+        book3.setUnitsInStock(1000);
         book3.setReleaseDate("2020/05/29");
 
         listOfBooks.add(book1);
@@ -54,5 +54,39 @@ public class BookRepositoryImpl implements BookRepository {
     @Override
     public List<Book> getAllBookList() {
         return listOfBooks;
+    }
+
+    //카테고리로 도서검색
+    @Override
+    public List<Book> getBookListByCategory(String category) {
+        //메모리 할당
+        List<Book> booksByCategory = new ArrayList<>();
+
+        //listOfBooks size 만큼 검색 - 카테고리 같은 조건들만 add
+        for (int i=0; i< listOfBooks.size(); i++){
+            Book book = listOfBooks.get(i);
+            //.equalsIgnoreCase = 대소문자 구분하지 않음
+            if(category.equalsIgnoreCase(book.getCategory()))
+                booksByCategory.add(book);
+        }
+        return booksByCategory;
+    }
+
+    //@RequestParam 이용해서 도서 ID와 일치하는 도서 정보 출력 요청 처리 메서드
+    @Override
+    public Book getBookByID(String bookId) {
+        Book bookInfo = null;
+        for (int i=0;i<listOfBooks.size(); i++){
+            Book book = listOfBooks.get(i);
+            if(book!=null && book.getBookId()!=null && book.getBookId()
+                .equals(bookId)){
+                bookInfo=book;
+                break;
+            }
+        }
+        if(bookInfo==null)
+            throw new IllegalArgumentException("도서 ID가 "+bookId+"인 해당 도서를" +
+                    "찾을 수 없습니다");
+            return bookInfo;
     }
 }

@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
-@RequestMapping("/home")
+//@Controller
+//@RequestMapping("/home")
 public class Example05Controller {
 
-    @RequestMapping("/exam05")
+//    @RequestMapping("/exam05")
     public String requestMethod(Model model)
     {
         model.addAttribute("data","Model 예제입니다");

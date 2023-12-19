@@ -16,7 +16,7 @@ public class Book {
     private String description;     //설명
     private String publisher;       //출판사
     private String category;        //분류
-    private long unitInStock;       //재고 수
+    private long unitsInStock;       //재고 수
     private String releaseDate;     //출판일(월/년)
     private String condition;       //신규 도서 또는 중고 도서 또는 전자책
 
