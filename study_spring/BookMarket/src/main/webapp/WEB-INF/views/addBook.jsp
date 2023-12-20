@@ -22,13 +22,20 @@
     </div>
 
     <div class="container">
+        <div class="float-right">
+            <form:form action="${pageContext.request.contextPath}/logout" method="post">
+                <input type="submit" class="btn btn-sm btn-success" value="Logout"/>
+            </form:form>
+        </div>
+        <br><br>
+
         <form:form modelAttribute="NewBook" class="form-horizontal">
         <fieldset>
             <legend>${addTitle}</legend>
             <div class="form-group row">
                 <label class="col-sm-2 control-label">도서ID</label>
                 <div class="col-sm-3">
-                    <form:input path="bookId" class="form-control"/>
+                    <form:input path="bookId" class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
