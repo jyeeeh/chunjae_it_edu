@@ -31,4 +31,9 @@
         where id=#{id}
     </update>
 
+    <!--페이징-->
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="board">
+       select * from board_table order by id desc limit #{start}, #{limit}
+    </select>
+
 </mapper>

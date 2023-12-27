@@ -86,6 +86,8 @@ public class BoardController {
     @GetMapping("/paging")
     public String paging(Model model, @RequestParam(value="page", required = false, defaultValue = "1") int page){
         log.info("page="+page);
+        List<BoardDTO> pagingList = boardService.pagingList(page);
+        System.out.println("pagingList = " + pagingList);
         return "index";
     }
 
