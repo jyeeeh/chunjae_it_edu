@@ -1,6 +1,7 @@
 package kr.co.chunjae.service;
 
 import kr.co.chunjae.dto.BoardDTO;
+import kr.co.chunjae.dto.PageDTO;
 import kr.co.chunjae.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -59,6 +60,23 @@ public class BoardService {
     }
 
 
-
-
+    public PageDTO pagingParam(int page) {
+        // 전체 글 갯수 조회
+        int boardCount = boardRepository.boardCount();
+        // 전체 페이지 갯수 계산(10/3=3.33333 => 4)
+        int maxPage = (int) (Math.ceil((double) boardCount / pageLimit));
+        // 시작 페이지 값 계산(1, 4, 7, 10, ~~~~)
+        int startPage = (((int)(Math.ceil((double) page / blockLimit))) - 1) * blockLimit + 1;
+        // 끝 페이지 값 계산(3, 6, 9, 12, ~~~~)
+        int endPage = startPage + blockLimit - 1;
+        if (endPage > maxPage) {
+            endPage = maxPage;
+        }
+        PageDTO pageDTO = new PageDTO();
+        pageDTO.setPage(page);
+        pageDTO.setMaxPage(maxPage);
+        pageDTO.setStartPage(startPage);
+        pageDTO.setEndPage(endPage);
+        return pageDTO;
+    }
 }

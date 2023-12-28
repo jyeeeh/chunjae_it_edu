@@ -1,6 +1,7 @@
 package kr.co.chunjae.controller;
 
 import kr.co.chunjae.dto.BoardDTO;
+import kr.co.chunjae.dto.PageDTO;
 import kr.co.chunjae.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -25,10 +26,12 @@ public class BoardController {
 
     @PostMapping("/save")
     public String save(@ModelAttribute BoardDTO boardDTO){
-        int saveReult = boardService.save(boardDTO);
-        if(saveReult>0){
+        int saveResult = boardService.save(boardDTO);
+        if(saveResult>0){
             //정상적으로 처리
-            return "redirect:/board/";
+            ///글 작성했을 때 페이지 목록으로 가도록 수정
+//            return "redirect:/board/";
+            return "redirect:/board/paging";
         }else{
             return "save";
         }
@@ -43,13 +46,18 @@ public class BoardController {
     }
 
     //리스트 상세 보기
+    //페이지정보를 가져와야해서 @RequestParam(value="page", required = false, defaultValue = "1") int page 추가함
     @GetMapping
-    public String findById(@RequestParam("id") Long id, Model model){
+    public String findById(@RequestParam("id") Long id,
+                           @RequestParam(value="page", required = false, defaultValue = "1") int page,
+                           Model model){
         //조회수 올리기
         boardService.updateHits(id);
         //---------------------------
         BoardDTO boardDTO = boardService.findById(id);
         model.addAttribute("board",boardDTO);
+        //페이지 정보 가져와야해서 가져옴
+        model.addAttribute("page",page);
         return "detail";
     }
 
@@ -84,11 +92,17 @@ public class BoardController {
 
     //페이징
     @GetMapping("/paging")
-    public String paging(Model model, @RequestParam(value="page", required = false, defaultValue = "1") int page){
+    public String paging(Model model,
+                         @RequestParam(value="page", required = false, defaultValue = "1")
+                         int page)
+    {
         log.info("page="+page);
         List<BoardDTO> pagingList = boardService.pagingList(page);
         System.out.println("pagingList = " + pagingList);
-        return "index";
+        PageDTO pageDTO = boardService.pagingParam(page);
+        model.addAttribute("boardList",pagingList);
+        model.addAttribute("paging",pageDTO);
+        return "paging";
     }
 
 

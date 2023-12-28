@@ -36,7 +36,9 @@
 </body>
 <script>
     const listFn = () => {
-        location.href = "/board/";
+        const page = '${page}';
+        //page정보 주고 page? 해야함
+        location.href = "/board/paging?page="+page;
     }
     const updateFn = () => {
         const id = '${board.id}';
