@@ -1,8 +1,10 @@
 package kr.co.chunjae.controller;
 
 import kr.co.chunjae.dto.BoardDTO;
+import kr.co.chunjae.dto.CommentDTO;
 import kr.co.chunjae.dto.PageDTO;
 import kr.co.chunjae.service.BoardService;
+import kr.co.chunjae.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,8 @@ import java.util.List;
 public class BoardController {
     //RequiredArgs.. = 연결하는 관계 설정할 때 필요
     private final BoardService boardService;
+    private final CommentService commentService;
+
     @GetMapping("/save")
     public String saveForm(){
         //save.jsp 리턴
@@ -58,6 +62,11 @@ public class BoardController {
         model.addAttribute("board",boardDTO);
         //페이지 정보 가져와야해서 가져옴
         model.addAttribute("page",page);
+
+        //댓글 리스트 불러오기
+        List<CommentDTO> commentDTOList = commentService.findAll(id);
+        model.addAttribute("commentList",commentDTOList);
+
         return "detail";
     }
 

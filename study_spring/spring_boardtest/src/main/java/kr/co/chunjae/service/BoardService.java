@@ -13,6 +13,7 @@ import java.util.*;
 @Log4j
 @RequiredArgsConstructor
 public class BoardService {
+    //Service = 중간 연계다리 역할
     private final BoardRepository boardRepository;
 
     public int save(BoardDTO boardDTO) {
