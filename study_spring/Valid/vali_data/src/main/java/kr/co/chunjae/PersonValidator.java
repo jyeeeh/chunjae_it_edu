@@ -16,5 +16,19 @@ public class PersonValidator implements Validator {
     public void validate(Object target, Errors errors) {
         //target 형태를 (Person)의 형태로 강제 형변환 -> casting
         Person person = (Person) target;
+        String name = person.getName();
+        if(name==null||name.trim().isEmpty()){
+            errors.rejectValue("name", "name.not.empty");
+        }
+
+        String age = person.getAge();
+        if(age==null||age.trim().isEmpty()){
+            errors.rejectValue("age", "age.not.inrange");
+        }
+
+        String email = person.getEmail();
+        if(email==null||email.trim().isEmpty()){
+            errors.rejectValue("email", "email.not.correct");
+        }
     }
 }
