@@ -1,6 +1,6 @@
 ## [RESTful 웹 서비스]
 
-## [결과]
+### [결과]
 
 | <@RequestBody 적용> 입력 |   결과 |
 | --- | --- |
@@ -19,7 +19,7 @@
 |![Untitled 3](https://github.com/jyeeeh/chunjae_it_edu/assets/145963612/b2e4bd43-caf2-4dce-8622-77503533b6ad)|
 <br>
 
-# [TIL]
+### [TIL]
 
 **초기설정**
 
