@@ -2,19 +2,19 @@
 
 ## [결과]
 
-| 입력 |  webpage14_result 결과 |
+| <@RequestBody 적용> 입력 |   결과 |
 | --- | --- |
 |![Untitled](https://github.com/jyeeeh/chunjae_it_edu/assets/145963612/d75d280e-bc2f-4a05-894d-1a1d54f25aac) |![Untitled 1](https://github.com/jyeeeh/chunjae_it_edu/assets/145963612/1c69ad54-e79c-45e3-8f45-5ce6f682eaa8)|
-<@RequestBody 적용>
+
 <br>
 
 
-| Example02Controller 결과 |
+| @RequestBody + JSON 전달 결과 |
 | --- |
 |![Untitled 2](https://github.com/jyeeeh/chunjae_it_edu/assets/145963612/f00aae16-762d-42fd-99c6-267bfb0e5481)|
 <br>
 
-| Example03Controller 결과 |
+| @RestController 결과 |
 | --- |
 |![Untitled 3](https://github.com/jyeeeh/chunjae_it_edu/assets/145963612/b2e4bd43-caf2-4dce-8622-77503533b6ad)|
 <br>
