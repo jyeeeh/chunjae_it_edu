@@ -8,6 +8,7 @@
 <script>
     //url 가변적으로 변경
     //json 타입
+    //문자열로 보내고 json으로 받아야함 JSON.stringify << 중요
     var obj = {"name" : "jyeeeh",  "age" : 10};
 
     function test(){
