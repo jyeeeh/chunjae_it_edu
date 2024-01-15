@@ -5,5 +5,7 @@
 </head>
 <body>
     <h1>/sample/admin page</h1>
+
+    <a href="/customLogin">Logout</a>
 </body>
 </html>
