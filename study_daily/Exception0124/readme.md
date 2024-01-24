@@ -6,13 +6,13 @@
 - ExeptionHandler
 - ControllerAdvice(우선순위1)
 
+
 **For**
 
 보안, 다양한 Exception처리
 
-1. ErrorController
 
-`@GetMapping("/error")`
+**1. ErrorController**
 
 ```java
 package kr.co.sloop.daily.controller;
@@ -31,9 +31,10 @@ public class DailyErrorController implements ErrorController {
 }
 ```
 
-1. ExeptionHandler - 한 컨트롤러내에서 잡고싶은 Exception 설정
 
-//getmapping 따로 없어도x
+**2. ExeptionHandler** - 한 컨트롤러내에서 잡고싶은 Exception 설정
+
+
 
 ```java
 @Target(ElementType.METHOD)
@@ -48,15 +49,17 @@ public class DailyErrorController implements ErrorController {
 
 : 단점) 컨트롤러마다 설정해주기 때문에 유지보수성이 힘듬(수정할 때 각각 수정해야함)
 
-1. `@ControllerAdvice`
 
-: *`By default, the methods in an {@code @ControllerAdvice} apply globally to all controllers.`*
+
+**3. @ControllerAdvice**
+
+ *`By default, the methods in an {@code @ControllerAdvice} apply globally to all controllers.`*
 
 *@ResponseStatus(HttpStatus.FORBIDDEN) 으로 500이더라도 404로 발생시킬수있음
 
 ---
 
-Error 와 Exception 차이
+**Error 와 Exception 차이**
 
 Error : 컴퓨터가 발생(컴파일링을 하면서)
 
