@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>attribute / property</title>
+    <script type="text/javascript">
+        const init=()=>{
+            document.getElementById("btn").num="8888";
+
+            document.getElementById("btn").onclick = function(){
+                console.log(this.num);
+                const list = document.getElementById("list");
+                const aTagList = list.getElementsByTagName("a");
+                console.log(aTagList);
+
+                for (let index = 0; index < aTagList.length; index++) {
+                    console.log(aTagList[index].getAttribute("num"));                    
+                }
+
+            };
+        };
+
+        window.onload=init;
+    </script>
+</head>
+<body>
+    <button id="btn">click</button>
+    <hr/>
+    <!-- <a href="http://www.naver.com" id="link">naver</a> -->
+    <ul id="list">
+        <li><a href="http://www.naver.com" id="link1" num="1">naver</a></li>
+        <li><a href="http://www.google.com" id="link2" num="2">google</a></li>
+    </ul>
+</body>
+</html>

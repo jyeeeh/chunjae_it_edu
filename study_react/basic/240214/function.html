@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>function</title>
+    <script type="text/javascript">
+        // 함수 선언
+        function add(num1, num2){
+            return num1+num2;
+        }
+        // 변수 선언 후 함수 (많이 사용되는 형태)
+        const add1 = function(num1,num2){
+            return num1+num2;
+        }
+        //arrow functions - react 때 이 방식
+        const add2 = (num1, num2) => {
+            return num1+num2;
+        }
+        
+        const result = add(10,20);
+        console.log(result);
+        const result1 = add1(1,2);
+        console.log(result1);
+        const result2 = add2(1,233);
+        console.log(result2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

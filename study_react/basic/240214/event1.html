@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>event</title>
+    <script type="text/javascript">
+        const clickEvent = function(){
+            // document.getElementById("box").innerText="ddd";
+            // const list = document.getElementById("list");
+            const liList = list.getElementsByTagName("li");
+            // console.log(list.getElementsByTagName("li"));
+            for (let index = 0; index < liList.length; index++) {
+                liList[index].innerText = "click"+(index+1);
+            }
+        
+        }
+        // body page loading 완료 후 발생하는 이벤트로 딱 한번 실행
+        window.onload=function(){
+            // console.log(document.getElementById("btn"));     
+            // 1.
+            document.getElementById("btn").onclick=function(){
+                clickEvent();
+                //여러개 호출을 나열해서 유지보수를 쉽게 함
+            }
+            // 2.
+            // document.getElementById("btn").onclick = clickEvent; () 호출 xxx
+        }; 
+        
+    </script>
+</head>
+<body>
+    <!-- <button onclick="javascript:clickEvent();">click</button> -->
+    <button id="btn">click22</button>
+    <div id="box">blank</div>
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+</html>
