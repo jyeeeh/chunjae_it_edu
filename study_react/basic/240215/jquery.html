@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>jQeury</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        const init=function(){
+            $("#box").on(
+                "click",
+                function(){
+                    // $(this) <-- $("#box") 랑 동일
+                    // = $(this).text("click");
+                    this.innerText="box click";
+                    // 위랑 동일 $("#box").text("click");
+
+                    // prop말고 attr 으로 불러온 이유
+                    // 정보가 dom으로 변경된걸 갖고오려면 prop로 사용
+                    console.log($(this).attr("id"));
+                }
+            );
+    
+            //addBtn에 click Event
+            $("#addBtn").on(
+             "click",
+            function(){
+                // $("#myList").append("<li>a</li>");
+                $("#myList").prepend("<li>a</li>");
+                const li = document.createElement("li");
+                $("#myList").prepend(li);
+            }
+            );
+
+
+
+            $("#delBtn").on(
+                "click",
+                function(){
+                    //대상찾고 remove 
+                    $("#box").remove();
+                    // first 찾아서 remove
+                    $("#myList li:first").remove();
+                }
+            )
+        }
+        window.onload=init;
+    </script>
+</head>
+<body>
+    <button id="addBtn">add</button>
+    <button id="delBtn">delete</button>
+    <ul id="myList">
+        <li>temp</li>
+    </ul>
+    <div id="box">text</div>
+</body>
+</html>

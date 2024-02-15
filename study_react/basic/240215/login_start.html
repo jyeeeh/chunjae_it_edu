@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> new document </title>
+  <link href="css/common.css" type="text/css" rel="stylesheet"  media="screen" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script type="text/javascript">
+	  
+	  const init=function(){
+			$("#loginBtn").on(
+				// click 했을때 function 실행
+				"click",
+				function(e){
+					// 이중 클릭 방지
+					// a href="#" 으로 이동되어서 url 뒤에 # 이 붙었는데
+					// e.preventDefault 해주면 url 에 안붙음
+					e.preventDefault();
+					//trim 붙여서 나오기
+					// const emailValue=$("#email").val();
+					const emailValue=$.trim($("#email").val());
+					const pwValue=$.trim($("#passwd").val());
+
+					// 이메일
+					if(emailValue==""){
+						window.alert("아이디를 입력해주세요");
+						// alert 이후로 email input 으로 focus 주기
+						$("#email").focus();
+						// function 종결 시켜줘야함
+						return false;
+					}
+
+					// 비밀번호
+					if(pwValue==""){
+						window.alert("비밀번호를 입력해주세요");
+						// alert 이후로 passwd input 으로 focus 주기
+						$("#passwd").focus();
+						return false;
+					}
+
+					// 비밀번호 자리 수 검사
+					if(pwValue.length<4){
+						window.alert("비밀번호는 최소 4자리 이상 입력해주세요");
+						$("#passwd").focus();
+						return false;
+					}
+
+					console.log("login!");
+					// console.log($("#email").val());
+					// console.log(emailValue);
+					// console.log($.trim(emailValue));
+
+					$("form[name='frm_login']").submit();
+
+				}
+			);
+
+			$("#passwd").on(
+                "keyup",
+                function(e){
+                    //key 가 Enter 로 나오면
+                    if(e.key.toLowerCase()=="enter"){
+						// loginBtn에 강제 이벤트 실행
+                        $("#loginBtn").trigger("click");
+                    }
+                }
+            );
+	  }
+	  window.onload=init;
+
+  </script>
+ </head>
+ <body>
+	<form name="frm_login" method="post" action="" class="lSearch">
+		<fieldset class="mLogin">
+			<legend>로그인</legend>
+			<h3><img src="images/tit_login.png" alt="로그인 - 소셜 간편 로그인/ msp 멤버십 로그인"></h3>
+			<dl class="log">
+				<dt class="id">아이디</dt>
+				<dd class="id">
+					<input type="text" class="it" title="아이디" id="email" name="email" placeholder="아이디" />
+				</dd>
+				<dt class="pw">비밀번호</dt>
+				<dd class="pw">
+					<input type="password" class="it" title="비밀번호" id="passwd" name="passwd" maxlength="20" placeholder="비밀번호" />
+				</dd>
+			</dl>
+			<div class="check">
+				<label for="saveCheck">
+					<span class="checkbox" style="background-position: 0px 0px;" id="saveCheckbox"></span>
+					<input type="checkbox" class="styled" name="chk_saveID" value="Y" id="saveCheck" />로그인 상태 유지
+				</label>
+			</div>
+			<div class="mButton1">
+				<a href="#" id="loginBtn"><img src="images/btn_signin.png" alt="SIGN IN"></a>
+			</div>
+			<div class="link">
+				<a href="#">회원가입</a>
+				<span class="bar">|</span>
+				<a href="#">아이디/비밀번호 찾기</a>
+			</div>
+		</fieldset>
+	 </form>
+ </body>
+</html>

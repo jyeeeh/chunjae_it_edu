@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>jQeury</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        const init=function(){
+
+            // moveBtn
+            // list2에서 moveBtn 누르면 list1로 이동
+            $("#moveBtn").on(
+                "click",
+                function(){
+                    $("#list1").append($("#list2 li:first"));
+                }
+            );
+        
+            //checkBtn
+            $("#checkBtn").on(
+              "click",function(){
+                // 1번 찾아서 그 이전(.prev())/이후(.next())으로 이동해서 check로 변경
+                // $("#list3 li:eq(1)").prev().text("check"); //이전 
+                // $("#list3 li:eq(1)").next().text("check"); //이후
+                $("#list3 li:eq(1)").parent().css("border","1px solid pink");  // parent 찾아 css 적용            }
+                $("#list3 li:eq(1)").find("a").text("MS"); // 찾아서 MS로 변경
+              }
+            );
+
+            //sendBtn
+            $("#sendBtn").on(
+                "click",
+                function(){
+                    //input의 name='id'인 것의 val
+                    const idInput=$("input[name='id']").val();
+                    console.log(idInput);
+                }
+            );
+
+            $("input[name='id']").on(
+                "keyup",
+                function(e){
+                    console.log(e);
+                    //key 가 Enter 로 나오면
+                    if(e.key.toLowerCase()=="enter"){
+                        console.log("전송");
+                    }
+                }
+            );
+        }
+        window.onload=init;
+    </script>
+</head>
+<body>
+    <!-- input type이 1개이면 자동 submit 처리 -->
+    <form action="" method="get">
+        id : <input type="text" name="id" /> <input type="text" name="pw" /> 
+        <button id="sendBtn" type="button">전송</button>
+    </form>
+
+    <button id="moveBtn">move</button>
+    <button id="checkBtn">check</button>
+
+    <ul id="list1"></ul>
+    <hr />
+    <ul id="list2">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <hr />
+    <ul id="list3">
+        <li><a href="#">naver</a></li>
+        <li><a href="#">google</a></li>
+        <li><a href="#">kakao</a></li>
+    </ul>
+</body>
+</html>
