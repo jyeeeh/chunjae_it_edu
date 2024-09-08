@@ -6,7 +6,7 @@
 
 [기간]
 
-2023.09 ~
+2023.09 ~ 2024.03
 
 <div align=center><h1>📒 STACKS</h1></div>
 <div align=center> 
